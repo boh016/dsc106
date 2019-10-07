@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    </head>
+    <body>
+        <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+        <script type="text/javascript">
+            Highcharts.chart('container', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Fulltime enrollment, 2018'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'percent',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'Men',
+                        y: 3220,
+                        sliced: true,
+                        selected: true
+                    },  {
+                        name: 'Women',
+                        y: 3484
+                    }]
+                }]
+            });
+        </script>
+    </body>
+</html>

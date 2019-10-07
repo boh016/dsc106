@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    </head>
+    <body>
+        <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+        <script type="text/javascript">
+
+            Highcharts.chart('container', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'UCSD admission data'
+    },
+    xAxis: {
+        categories: ['2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010','2009','2008','2007','2006','2005']
+    },
+    yAxis: {
+        title: {
+            text: 'Amount'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    data :{
+        csvURL: "http://localhost:9000/ucsd_cds_admission_data_2005_to_2018.csv"
+    }
+});
+        </script>
+    </body>
+</html>

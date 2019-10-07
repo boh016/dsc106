@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .bar{
+                fill: orange
+            }
+        </style>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+<svg width="500" height="400"></svg>
+<script>
+
+    var svg = d3.select("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom;
+
+var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+    y = d3.scaleLinear().rangeRound([height, 0]);
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    d3.csv("ucsd_cds_admission_data_2005_to_2018.csv").then((data) =>{
+            return data.map((d) =>{
+                d.year = d.year,
+                d.fulltime_men_applied = parseInt(d.fulltime_men_applied.replace(/,/g, ""));
+                d.fulltime_men_admitted = parseInt(d.fulltime_men_admitted.replace(/,/g, ""));
+                d.fulltime_men_enrolled = parseInt(d.fulltime_men_enrolled.replace(/,/g, ""));
+                d.fulltime_women_applied = parseInt(d.fulltime_women_applied.replace(/,/g, ""));
+                d.fulltime_women_admitted = parseInt(d.fulltime_women_admitted.replace(/,/g, ""));
+                d.fulltime_women_enrolled = parseInt(d.fulltime_women_enrolled.replace(/,/g, ""));
+                return d;
+            });
+    }).then((data) =>{
+        console.log(data[0]);
+
+        x.domain(data.map(function(d) { return d.year; }));
+        y.domain([0, d3.max(data, function(d) { return d.fulltime_men_applied; })]);
+
+        g.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
+
+        g.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3.axisLeft(y).ticks(10))
+          .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "end")
+            .text("fulltime_men_applied");
+
+        g.selectAll(".bar")
+          .data(data)
+          .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return x(d.year); })
+            .attr("y", function(d) { return y(d.fulltime_men_applied); })
+            .attr("width", x.bandwidth())
+            .attr("height", function(d) { return height - y(d.fulltime_men_applied) });
+
+        // for line chart
+        /*
+        g.append("path")
+          .datum(data)
+          .attr("fill", "none")
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", 1.5)
+          .attr("d", d3.line()
+            .x(function(d) { return x(d.year) })
+            .y(function(d) { return y(d.fulltime_men_applied) })
+            )
+        */
+    })
+
+</script>
+</body>
+</html>
