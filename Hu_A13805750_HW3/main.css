@@ -1,0 +1,93 @@
+body {
+    background-color:#ece9e6;
+}
+table th {
+    border-bottom: 1px solid #000;
+}
+.head{
+    font-size: 20px;
+    text-align: right;
+    font-family: "IBM Plex Serif",Georgia,Times New Roman,Times,serif;
+
+}
+.data{
+    text-align: right;
+}
+.unit {
+    font-family: "IBM Plex Serif",Georgia,Times New Roman,Times,serif;
+    font-size: 10%;
+    color: grey;
+    text-align: right;
+}
+.simpleTable {
+    font-family: Playfair Display,Georgia,Times New Roman,Times,serif;
+}
+.legend {
+    font-family: "IBM Plex Serif",Georgia,Times New Roman,Times,serif;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+#two {
+    text-align: center;
+}
+#topie_change {
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    box-shadow: 10px 10px 50px grey;
+    display: inline-block; margin: 0 auto;
+}
+#tobar_change {
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    box-shadow: 10px 10px 50px grey;
+    display: inline-block; margin: 0 auto;
+}
+#pie {
+    height: 80%;
+    width: 100%;
+}
+.black{
+    width: 10px;
+    height: 10px;
+    background: #121212;
+    display: inline-block;
+}
+.red{
+    width: 10px;
+    height: 10px;
+    background: #C74523;
+    display: inline-block;
+}
+.orange{
+    width: 10px;
+    height: 10px;
+    background: #FDB462;
+    display: inline-block;
+}
+.blue{
+    width: 10px;
+    height: 10px;
+    background: #4582B4;
+    display: inline-block;
+}
+.green{
+    width: 10px;
+    height: 10px;
+    background: #437607;
+    display: inline-block;
+}
+.purple{
+    width: 10px;
+    height: 10px;
+    background: #977AB1;
+    display: inline-block;
+}
+.skyblue{
+    width: 10px;
+    height: 10px;
+    background: #88AFD0;
+    display: inline-block;
+}

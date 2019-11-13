@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Springfield Energy</title>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <script src="https://kit.fontawesome.com/72ab5585cd.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <table class="simpleTable" border="2">
+      <tr>
+        <td width="100%"><img src="assets/top.jpg" alt="Energy Springfield"></td>
+      </tr>
+    </table>
+
+
+        <table id="container" width="100%" height="100%">
+            <tr>
+
+                <td id="stack" width="70%" height="50%"></td>
+                <td width="30%" height="50%">
+                    <table class="legend">
+                          <tr class="head">
+                            <th></th>
+                            <th>
+                                Power
+                                <p class="unit">MW</p>
+                            </th>
+                            <th>
+                                Contribution
+                                <p class="unit">to demand</p>
+                            </th>
+                            <th>
+                                Av.Value
+                                <p class="unit">$/MWh</p>
+                            </th>
+                          </tr>
+                          <tr id="sources">
+                            <th>Sources</th>
+                            <th class="data">-</th>
+                            <th class="data">-</th>
+                            <th class="data">-</th>
+                          </tr>
+                          <tr id="black_coal">
+                            <td>
+                                <div class="black"></div>
+                                    black_coal
+                            </td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                          </tr>
+                          <tr id="distillate">
+                            <td>
+                                <div class="red"></div>
+                                distillate
+                            </td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                          </tr>
+                          <tr id="gas_ccgt">
+                            <td>
+                                <div class="orange"></div>
+                                gas_ccgt
+                            </td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                          </tr>
+                          <tr id="hydro">
+                            <td>
+                                <div class="blue"></div>
+                                hydro
+                            </td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                          </tr>
+                          <tr id="wind">
+                            <td>
+                                <div class="green"></div>
+                                wind
+                            </td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                          </tr>
+                          <tr id="loads">
+                              <th>Loads</th>
+                              <th class="data">-</th>
+                              <th class="data">-</th>
+                              <th class="data">-</th>
+                          </tr>
+                          <tr id="exports">
+                              <td>
+                                  <div class="purple"></div>
+                                  exports
+                              </td>
+                              <td class="data">-</td>
+                              <td class="data">-</td>
+                              <td class="data">-</td>
+                          </tr>
+                          <tr id="pumps">
+                            <td>
+                                <div class="skyblue"></div>
+                                pumps
+                            </td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                            <td class="data">-</td>
+                          </tr>
+                          <tr id="net">
+                              <th>Net</th>
+                              <th class="data">-</th>
+                              <th class="data">-</th>
+                              <th class="data">-</th>
+                          </tr>
+                          <tr id="renew">
+                              <th>Renewables</th>
+                              <th class="data">-</th>
+                              <th class="data">-</th>
+                              <th class="data">-</th>
+                          </tr>
+                        </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td width = "70%" height="50%">
+                    <div id="price"></div>
+                    <div id="temperature"></div>
+                </td>
+                <td id="two" width ="30%" height="50%">
+                    <button id="topie_change"><i class="fas fa-chart-pie fa-lg"></i></button>
+                    <button id="tobar_change"><i class="fas fa-chart-bar fa-lg"></i></button>
+                    <div id="pie"></div>
+                </td>
+            </tr>
+
+        </table>
+            <input type="hidden" value="no_data" id="tooltip" />
+            <input type="hidden" value="no_money" id="tooltip_price" />
+
+        <script src="assets/jQuery.js"></script>
+        <script src="assets/highcharts.js"></script>
+        <script src="sync.js"></script>
+        <script src="main.js"></script>
+        <script type="text/javascript">
+
+            plotStackData();
+            plotPriceData();
+            plotTempData();
+            plotPieData();
+            fillData();
+        </script>
+    </body>
+</html>
